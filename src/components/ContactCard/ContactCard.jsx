@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
 import { BsPersonFillX } from 'react-icons/bs';
+import toast from 'react-hot-toast';
 
 import { deleteContact } from 'redux/operations';
 
-import { ContactContainer, DeleteBtn } from './ContactCard.styled';
+import { ContactContainer, Phone, DeleteBtn } from './ContactCard.styled';
 
 export const ContactCard = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export const ContactCard = ({ contact: { id, name, phone } }) => {
     <ContactContainer>
       <div>
         <p>
-          {name}: <span>{phone}</span>
+          {name}: <Phone>{phone}</Phone>
         </p>
       </div>
       <DeleteBtn id={id} onClick={() => onDeleteContact(id)}>

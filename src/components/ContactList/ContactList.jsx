@@ -10,21 +10,15 @@ export const ContactList = () => {
   const visibleContacts = useSelector(selectVisibleContacts);
 
   return (
-    <>
-      {items.length > 0 ? (
-        <List>
-          {visibleContacts.length === 0 && (
-            <ContactListMessage>No matches found</ContactListMessage>
-          )}
-          {visibleContacts.map(contact => (
-            <li key={contact.id}>
-              <ContactCard contact={contact} />
-            </li>
-          ))}
-        </List>
-      ) : (
-        <ContactListMessage>Contacts list is empty</ContactListMessage>
+    <List>
+      {items.length > 0 && visibleContacts.length === 0 && (
+        <ContactListMessage>No matches found</ContactListMessage>
       )}
-    </>
+      {visibleContacts.map(contact => (
+        <li key={contact.id}>
+          <ContactCard contact={contact} />
+        </li>
+      ))}
+    </List>
   );
 };

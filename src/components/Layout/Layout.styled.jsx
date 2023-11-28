@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
-  width: 400px;
+  width: 480px;
   padding: ${p => p.theme.spacing(4)};
   margin: ${p => p.theme.spacing(4)} auto;
 

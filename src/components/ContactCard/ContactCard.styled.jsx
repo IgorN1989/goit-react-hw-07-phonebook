@@ -19,6 +19,11 @@ export const ContactContainer = styled.div`
   }
 `;
 
+export const Phone = styled.span`
+  color: rgb(1, 180, 228);
+  margin-left: ${p => p.theme.spacing(2)};
+`;
+
 export const DeleteBtn = styled.button`
   cursor: pointer;
   display: flex;
