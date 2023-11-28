@@ -4,9 +4,8 @@ import { BsPersonPlusFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
-// import { addContact } from 'redux/contactsSlice';
 import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 import {
   StyledForm,
@@ -29,7 +28,7 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const checkNewContact = newContact => {

@@ -9,10 +9,8 @@ import { ContactContainer, DeleteBtn } from './ContactCard.styled';
 export const ContactCard = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();
 
-  const onDeleteContact = evt => {
-    const contactId = evt.target.id;
+  const onDeleteContact = contactId => {
     dispatch(deleteContact(contactId));
-
     toast.success('Contact was deleted!');
   };
 
@@ -23,7 +21,7 @@ export const ContactCard = ({ contact: { id, name, phone } }) => {
           {name}: <span>{phone}</span>
         </p>
       </div>
-      <DeleteBtn id={id} onClick={onDeleteContact}>
+      <DeleteBtn id={id} onClick={() => onDeleteContact(id)}>
         <BsPersonFillX />
         Delete
       </DeleteBtn>
