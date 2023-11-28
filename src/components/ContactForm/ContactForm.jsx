@@ -4,7 +4,8 @@ import { BsPersonPlusFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
-import { addContact } from 'redux/contactsSlice';
+// import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 
 import {
@@ -17,14 +18,14 @@ import {
 
 const contactSchema = object().shape({
   name: string().required('Please enter name'),
-  number: number()
+  phone: number()
     .typeError('Please enter only numbers')
     .required('Please enter phone number'),
 });
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 export const ContactForm = () => {
@@ -60,10 +61,10 @@ export const ContactForm = () => {
           <Input id="name" type="text" name="name" />
           <ErrorMsg name="name" component="span" />
         </Label>
-        <Label htmlFor="number">
+        <Label htmlFor="phone">
           <span>Number</span>
-          <Input id="number" type="tel" name="number" />
-          <ErrorMsg name="number" component="span" />
+          <Input id="phone" type="tel" name="phone" />
+          <ErrorMsg name="phone" component="span" />
         </Label>
         <AddBtn type="submit">
           <BsPersonPlusFill size={32} />

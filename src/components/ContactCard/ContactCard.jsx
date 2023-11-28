@@ -2,15 +2,17 @@ import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { BsPersonFillX } from 'react-icons/bs';
 
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 import { ContactContainer, DeleteBtn } from './ContactCard.styled';
 
-export const ContactCard = ({ contact: { id, name, number } }) => {
+export const ContactCard = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();
 
-  const onDeleteContact = contactId => {
+  const onDeleteContact = evt => {
+    const contactId = evt.target.id;
     dispatch(deleteContact(contactId));
+
     toast.success('Contact was deleted!');
   };
 
@@ -18,10 +20,10 @@ export const ContactCard = ({ contact: { id, name, number } }) => {
     <ContactContainer>
       <div>
         <p>
-          {name}: <span>{number}</span>
+          {name}: <span>{phone}</span>
         </p>
       </div>
-      <DeleteBtn onClick={() => onDeleteContact(id)}>
+      <DeleteBtn id={id} onClick={onDeleteContact}>
         <BsPersonFillX />
         Delete
       </DeleteBtn>

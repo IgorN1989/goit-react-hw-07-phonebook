@@ -8,12 +8,3 @@ export const store = configureStore({
     filter: filterReducer,
   },
 });
-
-// {
-//   contacts: {
-//     items: [],
-//     isLoading: false,
-//     error: null
-//   },
-//   filter: ""
-// }
